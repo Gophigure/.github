@@ -1,4 +1,4 @@
-<img align="center" src="/.github/assets/GophigureBannerProfile.svg">
+<img align="center" src="https://raw.githubusercontent.com/Gophigure/.github/main/.github/assets/GophigureBannerProfile.svg">
 
 ---
 
