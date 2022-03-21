@@ -2,9 +2,9 @@
 
 ---
 
-<p align="center">
+<h4 align="center"><i>
 Gophigure is an organization focused on developing a Discord bot, and the tools to both support and improve it.
-</p>
+</i></h3>
 
 ---
 
