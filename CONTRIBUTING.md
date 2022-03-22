@@ -1,140 +1,119 @@
-# Contributing to Gophigure
+<!--suppress HtmlDeprecatedAttribute -->
+<img align="center" alt="banner contributing" src="/.github/assets/GophigureBannerContributing.svg">
 
-To start, let's get something off our chest,
+---
 
-*Thank you for taking valuable time out of your day(s) and/or night(s) to
-contribute!!* 🎉
+<h4 align="center"><i>A document containing information and guidelines
+applied-as-default to Gophigure's projects.</i></h4>
 
-The following bullet-points and another tidbits are a set of guidelines and
-helpful information to get you started with
-contributing to Gophigure, hosted [here](https://github.com/Gophigure/bot), as
-well as our other repositories on GitHub.
-These are guidelines, they're not set-in-stone, and you're allowed to take some
-creative liberty and let use your best
-judgement.
+---
 
-> **Note:** *Any qualms with this document? Open
-a [pull-request](https://github.com/Gophigure/.github/pulls) and correct
-something we missed, or something you think we could word better.*
+<p align="center"><i>First off, thank you for taking the time to contribute to Gophigure! We greatly appreciate it. 🎉</i></p>
 
-## Table of Contents
+The following sections contain information and guidelines about how you can
+contribute to Gophigure and its projects.
 
-- [I just want to ask a question!](#i-just-want-to-ask-a-question)
+> 🔔 **Note:** Found an issue with this document? Consider opening an issue
+[here](https://github.com/Gophigure/.github/issues/new) or creating a
+> pull-request to address it [here](https://github.com/Gophigure/.github/pulls).
 
+---
 
-- [What should I know before I start?](#what-should-i-know-before-i-start)
+### Table of Contents
+
+- [I Just Want to Ask a Question!](#i-just-want-to-ask-a-question)
+  <br/>
+  > ---
+- [What Should I Know Before I Start?](#what-should-i-know-before-i-start)
+
     - [What is Gophigure?](#what-is-gophigure)
+    - [Our Projects](#our-projects)
     - [The Go Programming Language](#the-go-programming-language)
-    - [Gophigure Design Decisions](#gophigure-design-decisions)
-
-
+    - [Design Decisions](#design-decisions)
+      <br/><br/>
+  > ---
 - [How Can I Contribute?](#how-can-i-contribute)
-    - [How Do I Submit a (Good) Bug or Security Concern?](#how-do-i-submit-a-good-bug-report-or-security-concern)
+
+    - [Reporting Bugs & Security Issues](#reporting-bugs--security-issues)
+    - [How do I Submit a Bug or Security Issue?](#how-do-i-submit-a-bug-report-or-security-issue)
     - [Suggesting Features](#suggesting-features)
-    - [How Do I Submit a (Good) Feature Request?](#how-do-i-submit-a-good-bug-report-or-security-concern)
+    - [How do I Submit a Feature Request?](#how-do-i-submit-a-feature-request)
+    - [Code Contribution](#code-contribution)
+    - [How do I Contribute Code?](#how-do-i-contribute-code)
+    - [Pull-Requests](#pull-requests)
+      <br/><br/>
+  >   ---
+- [Style Guide](#style-guides)
 
-
-- [Your First Code Contribution](#your-first-code-contribution)
-    - [Local Development](#local-development)
-
-
-- [Pull-Requests](#pull-requests)
-
-
-- [Styleguide](#styleguide)
     - [Commit Messages](#commit-messages)
-    - [Go Styleguide](#go-styleguide)
-    - [Documentation Styleguide](#documentation-styleguide)
+    - [Go Style Guide](#go-style-guide)
+    - [Documentation Style Guide](#documentation-style-guide)
 
+---
 
-- [Additional Notes](#additional-notes)
-    - [Issues and Pull-Request Labels](#issues-and-pull-request-labels)
+### I Just Want to Ask a Question!
 
-## I Just Want to Ask a Question!
+If you'd like to ask questions about our projects, your best bet is to use
+GitHub's "Discussions" feature for the related repository. Don't forget to
+check if your question **has been answered before**.
 
-*"Don't ask to ask!"* - [See why](https://dontasktoask.com/).
+We also have a [Support Server](https://discord.gg/7jPSgv5x76). Please
+visit the `#support` channel to ask for help!
 
-> 🔔 **Note:** Do not create issues just to ask questions! Please use the
-> resources below, not only does it make the maintainer's lives easier, but it
-> also gets you faster responses.
+<h4 align="right"><i>
+Don't ask to ask! — <a href="https://dontasktoask.com/">See why</a>.
+</i></h4>
 
-We have an official [Support Server](https://discord.gg/7jPSgv5x76). Please
-visit the `#support` channel to ask for
-help!
+---
 
-## What Should I Know Before I Start?
+### What Should I Know Before I Start?
 
-### What is Gophigure?
+#### What is Gophigure?
 
-Gophigure is an open source project — it's comprised of not only the code, but
-the maintainers, contributors and those
-who support the project. 🤖💓🧑
+Gophigure is an organization for projects revolving around our Discord bot,
+under the same name. We aim to provide code that not only benefits *our* bot,
+but the projects of many others, not even necessarily other Discord bots!
 
-But, back to the code side of things, what *is* Gophigure? 🤔
+#### Our Projects
 
-- Gophigure is written solely using the Go programming language.
-- Gophigure can be compiled into a single binary, only requiring a configuration
-  file.
-- As most Go libraries and programs are, Gophigure is split into multiple
-  packages that group related code together,
-  allowing the ability to keep certain code contained within a package and only
-  allow global access to needed constants,
-  variables, types or functions. ⚙️📦
-    - `main` has code that allows easily setting up the full Gophigure bot,
-      easily.
-    - `core` comprises of code designed to be used **globally**, such as logging
-      utilities or variables that relate to
-      the core runtime.
-    - `state` handles state-based stuff, that happens per-shard.
-    - `extenions` contains structs that extend `arikawa`'s, providing more
-      functionality.
-    - `commands` contains the bot's commands.
-    - `util` is made up of code that is designed to be helpful, such as string
-      manipulation or matching any type of
-      object within a slice!
-        - `builders` is reserved for code designed for easily building complex
-          or repeatable structs and data.
+|                      Project                      |        Language(s)         | Description                                                                                                                           |
+|:-------------------------------------------------:|:--------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------|
+|      [bot](https://github.com/Gophigure/bot)      |            `Go`            | The bot is our Discord bot, which uses the Gophigure name. It aims to provide quick & easy tools for Discord servers, as well as fun! |
+|    [glyde](https://github.com/Gophigure/glyde)    |            `Go`            | Glyde is our Discord API wrapper used in our bot project, but is free to use for others!                                              |
+|  [website](https://github.com/Gophigure/website)  | `JavaScript`, `TypeScript` | This is the website code for Gophigure and its projects.                                                                              |
+| [branding](https://github.com/Gophigure/branding) |           `N/A`            | This project holds assets for our branding.                                                                                           |
 
-### The Go Programming Language
+#### The Go Programming Language
 
-Gophigure is written using Go, it is required that you have at least *some*
-knowledge of the language. We don't consider
-Gophigure to be a project where budding developers can use it as a testing
-grounds for submitting pull-requests that add
-or change things for "the sake of learning," however this does not mean that we
-do not allow new developers to
-participate in Gophigure's development. If you're new to Go, but want to provide
-genuine pull-requests, we're happy to
-receive them, and we'll do our best to guide you. 🏃‍💨
+Most of our code is written using `Go`, and it is expected that you know the
+basics before contributing to our code.
 
-### Gophigure Design Decisions
+If you don't know much about `Go` and would like to know more, you can do so at
+[the website](https://go.dev/).
 
-Gophigure is designed with the idea in mind that people will be able to easily
-expand upon it for their own needs, if
-they choose to self-host it. While we provide limited support for issues that
-occur due to 3rd-party changes, we will (
-eventually) provide guides to help those who wish to make Gophigure fit them and
-their server(s) better.
+#### Design Decisions
 
-## How Can I Contribute?
+Normally, each of our projects has a clear and concise idea of its direction,
+and how it's going to reach its destination.
 
-### Reporting Bugs & Security Issues
+In the event a project does *not* have a direction or clear destination, or
+you're unsure of either, this doesn't mean you cannot contribute. Continue as
+normal, making your changes and submit the pull-request. Your code will most
+likely be reviewed, and if we find anything out-of-place, we'll let you know.
 
-This section guides you through submitting an issue regarding one or multiple
-bugs, as well as security issues.
-Following these guidelines makes it much easier for maintainers and the
-community, as it gives them a standard and
-easy-to-understand slice of information to digest. 🪲
+---
+
+### How Can I Contribute?
+
+#### Reporting Bugs & Security Issues
+
+This section guides you through submitting reports of bugs or security issues in
+our projects.
 
 > 🔔 **Note:** When submitting an issue, you need to consider the following:
-> - Make sure your report is **easy to understand**. 📃🪶
-> - Make sure you include instructions on how to **reproduce** the behaviour.
-    💻➡️💻
-> - Make sure related posts are easier to find by using **keywords** in your
-    issue title. *️⃣
-
-> 🔔 **Note 2:** If you find a **closed** issue similar to yours, link it in
-> the "Short Description" section.
+> - Your report must be **easy to understand**.
+> - You must include instructions on how to **reproduce** the behaviour.
+> - Use **keywords** in your issue title.
 
 Before submitting an issue, check
 if [it already exists](https://github.com/Gophigure/bot/labels/bug). If it does,
@@ -143,235 +122,238 @@ it's still open, consider commenting on it that you are also experiencing the
 issue (do __NOT__ open a new issue), with
 the related information as mentioned in the notes above.
 
-### How Do I Submit a (Good) Bug Report or Security Concern?
+#### How do I Submit a Bug Report or Security Issue?
 
-Bugs and security issues are tracked
-using [GitHub Issues](https://github.com/Gophigure/bot/issues). After finding a
-bug
-or security issue, fill out a report
-using [the template](https://github.com/Gophigure/bot/blob/dev/.github/ISSUE_TEMPLATE/bug_report.yaml)
-.
+Bugs and security issues are tracked using GitHub issues for the related
+repository. If a template for a repository is provided for submitting reports,
+please use it as it makes maintainer's lives easier.
 
 > 🔔 **Note:** If you notice any issues with our template(s), don't hesitate to
 > shoot us a pull-request fixing the issue, we'll likely be more than happy to
 > merge!
 
-- **Use clear and concise titles.** This helps maintainers and the community
-  easily identify the main concern of the
-  issue without even having to click on it!
-- **Describe the exact steps to take to reproduce.** Give as best detail as you
-  can, this will help others reproduce and
-  confirm your findings.
-- **Provide specific examples when listing reproduction steps.** This will make
-  it as clear as crystal 💎 to those who
-  want to help by trying to reproduce. Why does it happen? When does it happen?
-  Does it happen after a specific amount
-  of time, or randomly?
-- **Describe the incorrect behavior.** Why is it wrong? What does the bot do
-  when the bug occurs?
-- **Explain the behaviour you expected to see.** What behavior was expected of
-  the bot, if it were to behave properly?
-- **Include screenshots and animated GIFs of the bot malfunctioning for greater
-  context.** It can sometimes help people
-  if they have a visual representation of the issue occurring.
-- **When reporting a "panic", include the stacktrace.** This helps developers
-  identify the problem in where it occurs
-  and how many layers it goes through.
-- **If the problem is related to performance,** it'd be awesome if you could
-  include a `pprof` heap, or even better,
-  investigate it yourself and return with your findings. If you'd like to learn
-  more about measuring performance in Go,
-  check out [this article](https://golang.org/doc/diagnostics).
+If your report is about performance, make sure to evaluate the perceived
+performance loss and make a judgement on whether it is **currently important**.
+We want to hear your reasoning as to why we should improve the performance, as
+doing this subtracts time from developing new features and improving existing
+ones. Don't be upset if we mark these kinds of reports as `won't fix` or imply
+that we will not take time to fix the problem immediately.
 
-> 🔔 **Note:** When reporting issues, please ensure the problem persists in the
-> OFFICIAL version of the bot, this only applies to those running their own
-> modified versions of Gophigure.
+If you're using our projects with 3rd-party modifications, ensure that the
+issues still occur in our unmodified projects. Issues brought on by additions or
+changes to our software is likely not a fault of our own, however if you think
+that it is, don't hesitate to still make a report.
 
-Don't forget to **include details about your environment**, including the
-operating system, architecture, CPU, RAM (
-speed and amount is enough), storage (amount is enough).
+Don't forget to **include details** such as:
 
-### Suggesting Features
+- Operating System
+    - Name (Windows, MacOS/OSX, Linux, BSD)
+    - Version/Distribution (11, Monterey, Ubuntu 22.04, FreeBSD 13.0)  
+      *We may request more information about the specific build of your OS, such
+      as the kernel or build number.*
+    - Bit-ness (32 or 64 bit)
+- Central Processing Unit (CPU)
 
-This portion of the Contribution Guidelines guides you through submitting
-feature requests for Gophigure, including new
-features and improvements or changes to existing ones. Following these
-guidelines makes it much easier for maintainers
-and the community to understand your feature request(s) and find related
-requests 🔍.
+  > 🔔 **Note:** Not all CPU details are **required**, just enough to get a
+  rough idea of its performance and architecture.
 
-Before submitting a request, check
-if [it already exists](https://github.com/Gophigure/bot/labels/feature%20request)
-. If
-it does, and it's still open, consider commenting on it if you have something to
-add.
+    - Company
+    - Brand
+    - Family/Brand Modifier
+    - Generation
+    - Performance Level
+    - Model/SKU Number
+    - Power/Product Line Suffix
+    - Architecture
 
-### How Do I Submit a (Good) Feature Request?
+  e.g `AMD Ryzen 5 3600X` or `Intel Core i7 8750H`
 
-> 🔔 **Note:** The information in this section refers specifically to our `bot`
-> repository, however you can apply this knowledge to our other repositories, too,
-> given proper adaptation.
+#### Suggesting Features
 
-Feature requests are tracked
-using [GitHub Issues](https://github.com/Gophigure/bot/issues). After coming up
-with a new
-feature or addition to an existing one, fill out a request
-using [the template](https://github.com/Gophigure/bot/blob/dev/.github/ISSUE_TEMPLATE/bug_report.yaml)
-.
+This portion gives you some pointers for submitting requests for features to be
+added to our projects.
 
-- **Use clear and concise titles.** This helps maintainers and the community
-  easily identify the main idea of the
-  request without even having to click on it!
-- **Describe the exact ideas behind the request.** Give as best detail as you
-  can, this will help others comprehend and
-  give feedback.
-- **Provide specific examples of what purpose a feature would serve.** This can
-  make it easier for some people to
-  understand *why* you are requesting something.
-- **Include drafts or mockups.** It can sometimes help people if they have a
-  visual representation of the feature, this
-  of course isn't necessary at all, but it's still nice. 😀
+> 🔔 **Note:** When submitting a request, you need to consider the following:
+> - Your request must be **easy to understand**.
+> - You must **give reasons** for why you think the feature should be included.
+> - Use **keywords** in your issue title.
 
-## Your First Code Contribution
+Before submitting a request, check if
+[it already exists](https://github.com/Gophigure/bot/labels/feature%20request).
+If it does, and it's still open, consider commenting on it if you have something
+to add.
 
-If you're unsure about where we need help with Gophigure, check out issues
-tagged with `beginner` and `help wanted`.
+#### How do I Submit a Feature Request?
 
-- [Beginner Issues](https://github.com/Gophigure/bot/labels/beginner) — Issues
-  only requiring a small fix with limited
-  testing, good for beginners!
-- [Help Wanted Issues](https://github.com/Gophigure/bot/labels/help%20wanted) —
-  Issues that could be more difficult to
-  handle than `beginner` issues, and we're looking for help.
+Feature requests are tracked using GitHub issues for the related repository. If
+a template is provided for feature requests, please use it as it makes
+maintainer's lives easier.
 
-### Local Development
+> 🔔 **Note:** If you notice any issues with our template(s), don't hesitate to
+> shoot us a pull-request fixing the issue, we'll likely be more than happy to
+> merge!
 
-Gophigure can be developed locally using the `git` version control tool. We
-prefer the feature-branch approach to
-contributing. .
+If your request is for something outside the project's scope, don't be upset if
+we close the issue with a statement giving this as a reason. Projects usually
+have a clear idea of the direction they want to take, and this means mostly
+ignoring ideas that do not fit within those ideals. If you still think you have
+a strong argument for the feature, don't be afraid to still submit a request.
+
+#### Code Contribution
+
+Contributing code to our projects is greatly appreciated, but of course we have
+a process that you must follow to make it both easier for you, and easier for
+the maintainers.
+
+Issues and pull-requests have labels which help to identify the area, severity,
+or potential complexity of a possible solution.
+
+#### Issue Tag Examples
+
+> 🔔 **Note:** Some tags will only appear on **closed** issues, and if you're
+> looking to contribute, they may not matter.
+
+|                    Tag                     | Description                                                                                           |
+|:------------------------------------------:|:------------------------------------------------------------------------------------------------------|
+|                   `bug`                    | The issue is reporting incorrect behaviour.                                                           |
+|             `good first issue`             | The issue is recommended for new contributors to tackle.                                              |
+|              `documentation`               | The issue is related to adding or improving documentation.                                            |
+|             `feature request`              | The issue is requesting for a new feature to be added, or an existing feature to be improved/changed. |                                                            |
+
+#### How do I Contribute Code?
+
+You can contribute code by choosing a GitHub issue to address, then following
+the guide below.
+
+#### Local Development
+
+You can contribute to our projects' code with a few easy-to-use tools.
+
+First off, some programs you **require**:
+
+- `git` — A version control system (VCS) tool, which you can
+  obtain [here](https://git-scm.com/downloads).
+- `git-lfs`* — Git Large-File-Storage (LFS) is an extension to `git` which
+  allows versioning large and/or binary files.
+- `go`** — The official Go programming language toolchain, which you can
+  obtain [here](https://go.dev/dl).
+- A text editor of your choice. This can be as simple as `notepad` or as complex
+  as an Integrated Development Environment (IDE) like `Visual Studio Code`.***
+
+> *Not all projects require `git-lfs`, but you may need it for some. If you
+> would like to learn more about LFS you can do
+> so [here](https://git-lfs.github.com/).
+
+> **Not all projects require the Go toolchain, for example our website.
+
+> ***In the event of using a text editor that supports the Language Server
+> Protocol (LSP), you may want to install extensions and/or a language server
+> for code-completion and other goodies to help development.
+
+Once you've gotten the required tools to aid development, you can get started
+with the steps below.
 
 1. Fork this repository, then clone your fork and `cd` into the folder.
+
     ```shell
-    $ git clone https://github.com/owner/repo.git repo_fork
-    $ cd repo_fork
+    $ git clone <url> <folder-name>
+    $ cd <folder-name>
     ```
    *Replace `owner` and `repo` with the name of the repository owner and the
-   name of the repository, e.g. `Gophigure`
-   and `bot`, to get `https://github.com/Gophigure/bot.git`.*
-2. Create a new branch based of the existing `dev` branch.
-    ```shell
-    $ git branch new_branch_name
-    ```
-   *If you do not have the `dev` branch checked out, for whatever reason,
-   instead use `dev` as the first argument and
-   the new branch name as the second.*
+   name of the repository, e.g. `Gophigure`and `bot`, to
+   get `https://github.com/Gophigure/bot.git` & `bot_fork`.*
+2. Create a new branch based of the existing branch you want to contribute to.
 
-   We prefer to use the feature branch technique for contributions that include
-   new features, so you should name your
-   branches `feat/<name>`, where `<name>` is the name of the feature. Submitting
-   fixes or adding small, yet helpful
-   features to existing ones does not require doing this.
-3. Make your changes and commit with them.
     ```shell
-    $ git add files
-    $ git commit -m commit_message
-    $ git push origin branch_name
+    $ git branch <new-branch-name>
+    ```
+   *If you do not have the correct branch checked out, instead use the name of
+   the branch you want to duplicate as the first argument and the new branch
+   name as the second. **e.g.** `dev feat/rewrite-x-system`
+   or `dev fix/correct-type-for-x`.*
+3. Make your changes and commit with them.
+
+    ```shell
+    $ git add <...files>
+    $ git commit -m <commit-message>
+    $ git push origin <branch-name>
     ```
 4. Head back to GitHub and create the pull-request. If you need help creating
    pull-requests, check
    out [this](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
    article written by GitHub themselves.
 
-## Pull-Requests
+#### Pull-Requests
 
-What's described here has several purposes:
+Pull-requests are an organised way to review contributions before merging.
 
-- Maintain the code quality of Gophigure
-- Fix problems that are important to our users
-- Allow for community engagement
-- Allow easy review for contributors
+When submitting pull-requests you **must**:
 
-If you'd like your contribution(s) to be accepted by the maintainers:
+- Follow the [Style Guides](#style-guides).
+- After you submit your pull-request, ensure
+  all [status checks](https://help.github.com/articles/about-status-checks/)
+  are passing.
+- Respond thoughtfully to questions asked about your pull-request, whether it's
+  from a maintainer or not.
+    - You must be able to justify your changes.
+    - You must be able to explain your changes.
+- Try to make alterations when they are suggested or asked of you. This is often
+  when we think your code doesn't quite fit our style, and we're just trying to
+  keep things uniform.
 
-1. Follow the [styleguide](#styleguide).
-2. After you submit your pull-request, ensure
-   all [status checks](https://help.github.com/articles/about-status-checks/)
-   are passing. <details><summary>What if the status checks aren't
-   passing?</summary>If your contribution isn't passing
-   checks, and you believe that the failure isn't related to your change(s),
-   please leave a comment on the pull request
-   explaining why you believe it isn't related. A maintainer will re-run the
-   checks for you, and further conclusions
-   will be made.</details>
+<details>
+  <summary><i>What if the status checks aren't passing?</i></summary>
+  If your contribution isn't passing checks, and you believe that the failure
+  isn't your own fault, please leave a comment on the pull request explaining
+  why you believe it isn't related.
+</details>
 
-This list isn't exhaustive, maintainers may ask for more information or extras
-to be completed before considering
-merging your contribution(s). Maintainers will usually ask for this if you're
-making a big change or making a change
-they don't immediately understand.
+If you don't know how to submit a
+pull-request, [this article](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+should help!
 
-## Styleguide
+---
 
-### Commit Messages
+### Style Guides
 
-- Use present tense ("Add feature" and not "Added feature")
-- Use imperative mood ("Move this to..." and not "Moves this to...")
+#### Commit Messages
+
+When writing a commit message, you **must** take these into consideration:
+
+- Use present tense ("Add feature" and not "Added feature").
+- Use imperative mood ("Move this to..." and not "Moves this to...").
 - Limit the first line to 72 characters or fewer, but we won't hate you for not
-  following this, and sometimes the
-  maintainers forget this one too.
+  following this, and sometimes the maintainers forget this one too.
     - If you do happen to forget, maintainers might request that you alter the
-      commit names to fit within 72 characters,
-      or they will do it when merging.
+      commit names to fit within 72 characters, or they will do it when merging.
 - Prefix your commits with what action they perform and the scope, following
   the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
   guide.
-    - e.g `feat(util): add SomethingRather function` — You should not need to
-      describe what your feature does, in most
-      cases. Documentation along with the feature's name etc. should be enough.
+    - e.g `feat(util): Add SomethingRather function` — You should not need to
+      describe what your feature does, in most cases. Documentation along with
+      the feature's name etc. should be enough.
 
-### Go Styleguide
+#### Go Style Guide
 
-Go formatting must *line-up* with
+Go formatting must *line up* with
 the [Effective Go, Formatting](https://golang.org/doc/effective_go#formatting)
-section
-in the Go documentation.
+section in the Go documentation.
 
-To save you reading most of it, `gofmt` will do most of the work for you, and
-lucky for you, that comes with the `go`
-binary when installing. Simply run `gofmt` on any files you edit.
+To save you reading most of it, `gofmt` will do most of the work for you. The Go
+toolchain includes `gofmt` for you. Simply run it on any files you edit, some
+IDEs can be configured or come pre-configured to run actions like these on-save.
 
-But, some extra things we need to talk about:
+Make sure to avoid platform-dependant code as best you can. If you require to
+use it, please make justifications and ensure that all platforms are covered.
 
-- Avoid platform-dependant code
-- Avoid lines of code that are much longer than 100 characters, consider using
-  newlines and indenting.
+#### Documentation Style Guide
 
-### Documentation Styleguide
-
-In-code documentation:
+In-code documentation **must**:
 
 - Follow
   the [Effective Go, Commentary](https://golang.org/doc/effective_go#commentary)
   section in the Go documentation.
 - Ensure lines do not exceed 80 characters, any words that contain the 80
-  hard-limit within shall be placed on a
-  newline.
+  hard-limit within shall be placed on a newline.
 - Only use comment-blocks for comments that **require** it, please use
   line-comments for most documentation.
-
-External documentation:
-
-- TBA
-
-## Additional Notes
-
-### Issues and Pull-Request Labels
-
-Labels make it trivial to search and filter issues and pull-requests, to let you
-look for what you are specifically
-targeting, as well as sort in a variety of ways.
-
-If you'd like to know more on how to search through issues, check
-out [this article](https://help.github.com/articles/searching-issues/) by
-GitHub.
-
